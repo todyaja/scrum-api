@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  name String
+  email String
+  profilePictureUrl String
+  tickets Ticket[]
+  ticketLogs TicketLog[]
+}
+
+model Ticket{
+  id Int @id @default(autoincrement())
+  point Int @default(0)
+  status TicketStatus @relation(fields: [statusId], references: [id])
+  statusId Int
+  assignToId Int? 
+  assignedUser User? @relation(fields: [assignToId], references: [id])
+  ticketLogs TicketLog[]
+  description String
+  title String
+}
+
+model TicketStatus{
+  id Int @id @default(autoincrement())
+  description String
+  ticket Ticket[]
+}
+
+model TicketLog{
+  id Int @id @default(autoincrement())
+  title String
+  ticket Ticket @relation(fields: [ticketId], references: [id])
+  ticketId Int
+  date DateTime
+  editedBy Int
+  editedUser User @relation(fields: [editedBy], references: [id])
+}
