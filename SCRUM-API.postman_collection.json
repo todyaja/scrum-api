@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "17811017-6348-4a35-b24f-e3659416156d",
+		"name": "SCRUM-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14232532"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user3",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/User/OneDrive - Bina Nusantara/Pictures/show.png"
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/v1/user"
+					},
+					"response": []
+				},
+				{
+					"name": "User Performance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/user/user-performance/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"test ticket 2\",\r\n    \"point\" : 10,\r\n    \"createdBy\" : 1,\r\n    \"description\" : \"test desc\",\r\n    \"assignToId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/ticket/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"test change\",\r\n    \"point\" : 10,\r\n    \"editedBy\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/ticket/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\" : 1,\r\n    \"assignTo\" : 1,\r\n    \"editedBy\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/ticket/assign"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Ticket Progress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\" : 1,\r\n    \"statusId\" : 3,\r\n    \"editedBy\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/ticket/change-progress"
+					},
+					"response": []
+				},
+				{
+					"name": "Task Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/ticket/task-summary/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
