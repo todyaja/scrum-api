@@ -30,32 +30,21 @@
 
 ```bash
 $ npm install
+
+# rename .env.example file to .env and insert the postgresql connection string
+
+# migrate and reset the database to make sure the seeder run
+$ npx prisma migrate dev --name init
+$ npx prisma migrate reset
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
 
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Support
